@@ -3,11 +3,10 @@ python=/usr/bin/env python
 all: clean build
 
 build:
-	$(python) -m pip install -r requirements.txt
 	mkdir -p static
 	mkdir -p public
 	$(python) manage.py collectstatic --noinput
-	$(python) manage.py distill-local --force
+	$(python) manage.py distill-local --noinput --force
 
 clean:
 	rm -rf public
